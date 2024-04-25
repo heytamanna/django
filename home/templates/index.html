@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block start%}
+
+
+    
+    <a href="/contact/">
+      contact
+    </a>
+ |
+    <a href="/about/">
+      about
+    </a>
+
+    <h1>✅This is index page</h1>
+
+
+    <table class="container">
+        <tr>
+          <th>S no.</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Can Vote</th>
+        </tr>
+        {%for people in peoples %}
+
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{people.name}}</td>
+          <td>{{people.age}}</td>
+        
+          <td {% if people.age >= 18 %} style="background:green" {% else %} style="background:red"{% endif %}>
+            {% if people.age >= 18 %}
+            👍
+            {% else %}
+            👎
+            {% endif %}
+             
+          </td>
+
+        </tr>
+
+        {% endfor %}
+      </table>
+
+      <p>
+        {% if "strawberry" in fruits %}
+            YES AVALAIBLE🫡
+        {% elif "Cherry" in fruits %}  
+            YES AVALAIBLE 🍒🫡
+        {% else %}
+             NOT AVAILABLE❌😔
+        {% endif %}
+      </p>
+
+    {% endblock %}
